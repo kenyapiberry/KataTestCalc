@@ -66,15 +66,6 @@ func convToArabic(roman string) int {
 		return 9
 	case "X":
 		return 10
-	case "XL":
-		return 40
-	case "L":
-		return 50
-	case "XC":
-		return 90
-	case "C":
-		return 100
-
 	default:
 		panic("Числа должны быть от I до X")
 	}
@@ -82,10 +73,9 @@ func convToArabic(roman string) int {
 
 func arabicToRoman(arabic int) string {
 	roman := ""
-	values := []int{100, 50, 40, 10, 9, 5, 4, 1}
-	symbols := []string{"C", "L", "XL", "X", "IX", "V", "IV", "I"}
-
-	for i := 0; i < 7; i++ {
+	values := []int{100, 90, 50, 40, 10, 9, 5, 4, 1}
+	symbols := []string{"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+	for i := 0; i < 9; i++ {
 		for arabic >= values[i] {
 			arabic -= values[i]
 			roman += symbols[i]
